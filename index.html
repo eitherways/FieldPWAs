@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wetland Field Assessment PWA</title>
+    
+    <!-- PWA Primary Color & Manifest -->
+    <meta name="theme-color" content="#2d5a27">
+    <meta name="description" content="Offline Wetland Field Assessment Form PWA">
+    <link rel="manifest" id="manifest-placeholder">
+
+    <style>
+        :root {
+            --primary: #2d5a27;
+            --secondary: #4a7c59;
+            --light-bg: #f4f7f4;
+            --border: #ccc;
+            --text: #333;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: var(--text);
+            background-color: #eef2ee;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            color: var(--primary);
+            margin: 0;
+            font-size: 24px;
+            text-transform: uppercase;
+        }
+
+        .company-title {
+            text-align: right;
+            font-weight: bold;
+            color: var(--secondary);
+        }
+
+        fieldset {
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: #fafafa;
+        }
+
+        legend {
+            font-weight: bold;
+            color: var(--primary);
+            padding: 0 8px;
+            font-size: 1.1em;
+            text-transform: uppercase;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"], input[type="date"], select, textarea {
+            padding: 8px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 0.95em;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9em;
+        }
+
+        .info-box {
+            background-color: #eaf2ea;
+            border-left: 4px solid var(--primary);
+            padding: 10px;
+            font-size: 0.85em;
+            margin-top: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+
+        th, td {
+            border: 1px solid var(--border);
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--secondary);
+            color: white;
+        }
+
+        .btn-submit, .btn-action {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.3s ease;
+        }
+
+        .btn-submit { width: 100%; }
+
+        .btn-action:hover, .btn-submit:hover {
+            background-color: var(--secondary);
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+        }
+
+        /* Render View Styling */
+        #rendered-view {
+            display: none;
+        }
+
+        .rendered-section {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        .rendered-section h3 {
+            color: var(--primary);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            font-size: 1.05em;
+        }
+
+        .rendered-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+        }
+
+        .data-item {
+            font-size: 0.95em;
+        }
+
+        .data-item span {
+            font-weight: bold;
+            color: #555;
+        }
+
+        .actions-bar {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        @media print {
+            .actions-bar { display: none; }
+            body { background-color: #fff; padding: 0; }
+            .container { box-shadow: none; padding: 0; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div>
+            <h1>Wetland Field Assessment Form</h1>
+        </div>
+        <div class="company-title">
+            PINTAIL<br>
+            <small>ENVIRONMENTAL CONSULTING INC.</small>
+        </div>
+    </header>
+
+    <!-- EDITABLE FORM VIEW -->
+    <form id="assessment-form">
+        <!-- GENERAL INFORMATION -->
+        <fieldset>
+            <legend>General Information</legend>
+            <div class="grid">
+                <div class="form-group">
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="Date">
+                </div>
+                <div class="form-group">
+                    <label for="project_num">Project #:</label>
+                    <input type="text" id="project_num" name="Project #">
+                </div>
+                <div class="form-group">
+                    <label for="assessor">Assessor:</label>
+                    <input type="text" id="assessor" name="Assessor">
+                </div>
+                <div class="form-group">
+                    <label for="wetland_num">Wetland #:</label>
+                    <input type="text" id="wetland_num" name="Wetland #">
+                </div>
+                <div class="form-group">
+                    <label for="legal_loc">Legal Location:</label>
+                    <input type="text" id="legal_loc" name="Legal Location">
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- LOCATION INFORMATION -->
+        <fieldset>
+            <legend>Location Information</legend>
+            <div class="grid">
+                <div class="form-group">
+                    <label for="waypoint">Waypoint #:</label>
+                    <input type="text" id="waypoint" name="Waypoint #">
+                </div>
+                <div class="form-group">
+                    <label for="zone">Zone:</label>
+                    <input type="text" id="zone" name="Zone">
+                </div>
+                <div class="form-group">
+                    <label for="easting">Easting (E):</label>
+                    <input type="text" id="easting" name="Easting">
+                </div>
+                <div class="form-group">
+                    <label for="northing">Northing (N):</label>
+                    <input type="text" id="northing" name="Northing">
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- SURROUNDING LANDUSE -->
+        <fieldset>
+            <legend>Surrounding Landuse</legend>
+            <div class="grid">
+                <div class="form-group">
+                    <label>Development</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item"><input type="checkbox" name="Development" value="Industrial"> Industrial</label>
+                        <label class="checkbox-item"><input type="checkbox" name="Development" value="Commercial"> Commercial</label>
+                        <label class="checkbox-item"><input type="checkbox" name="Development" value="Residential"> Residential</label>
+                        <label class="checkbox-item"><input type="checkbox" name="Development" value="Acreage"> Acreage</label>
+                        <label class="checkbox-item"><input type="checkbox" name="Development" value="Wellsite"> Wellsite</label>
+                        <label class="checkbox-item"><input type="checkbox" name="Development" value="Facility"> Facility</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Transportation</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item"><input type="checkbox" name="Transportation" value="Railway"> Railway</label>
+                        <label class="checkbox-item"><input type="checkbox" name="Transportation" value="Lease Road"> Lease Road</label>
+                        <label class="checkbox-item"><input type="checkbox" name="Transportation" value="High Grade Gravel"> High Grade Gravel</label>
+                        <label class="checkbox-item"><input type="checkbox" name="Transportation" value="Paved Highway/Road"> Paved Highway/Road</label>
+                        <label class="checkbox-item"><input type="checkbox" name="Transportation" value="Trail"> Trail</label>
+                        <label class="checkbox-item"><input type="checkbox" name="Transportation" value="Seismic Line"> Seismic Line</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Agricultural & Energy</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item"><input type="checkbox" name="Agricultural" value="Tame Pasture"> Tame Pasture</label>
+                        <label class="checkbox-item"><input type="checkbox" name="Agricultural" value="Farmyard"> Farmyard</label>
+                        <label class="checkbox-item"><input type="checkbox" name="Agricultural" value="Hay"> Hay</label>
+                        <label class="checkbox-item"><input type="checkbox" name="Agricultural" value="Cultivated"> Cultivated</label>
+                        <label class="checkbox-item"><input type="checkbox" name="Agricultural" value="Wind Turbines"> Wind Turbines</label>
+                        <label class="checkbox-item"><input type="checkbox" name="Agricultural" value="Solar"> Solar</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group" style="margin-top: 15px;">
+                <label for="landuse_notes">Other / Things to Note:</label>
+                <textarea id="landuse_notes" name="Landuse Notes"></textarea>
+            </div>
+        </fieldset>
+
+        <!-- WETLAND CLASSIFICATION -->
+        <fieldset>
+            <legend>Wetland Classification</legend>
+            <div class="grid">
+                <div class="form-group">
+                    <label for="class">Class:</label>
+                    <select id="class" name="Class">
+                        <option value="">-- Select Class --</option>
+                        <option value="Bog [B]">Bog [B]</option>
+                        <option value="Fen [F]">Fen [F]</option>
+                        <option value="Marsh [M]">Marsh [M]</option>
+                        <option value="Swamp [S]">Swamp [S]</option>
+                        <option value="Shallow Open Water [W]">Shallow Open Water [W]</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="form">Form:</label>
+                    <select id="form" name="Form">
+                        <option value="">-- Select Form --</option>
+                        <option value="Wooded, coniferous [Wc]">Wooded, coniferous [Wc]</option>
+                        <option value="Wooded, mixedwood [Wm]">Wooded, mixedwood [Wm]</option>
+                        <option value="Wooded, deciduous [Wd]">Wooded, deciduous [Wd]</option>
+                        <option value="Shrubby [S]">Shrubby [S]</option>
+                        <option value="Graminoid [G]">Graminoid [G]</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="salinity">Salinity:</label>
+                    <select id="salinity" name="Salinity">
+                        <option value="">-- Select Salinity --</option>
+                        <option value="Freshwater [f]">Freshwater [f]</option>
+                        <option value="Slightly brackish [sb]">Slightly brackish [sb]</option>
+                        <option value="Moderately brackish [mb]">Moderately brackish [mb]</option>
+                        <option value="Brackish [b]">Brackish [b]</option>
+                    </select>
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- HYDROLOGY -->
+        <fieldset>
+            <legend>Hydrology</legend>
+            <div class="grid">
+                <div class="form-group">
+                    <label>Connectivity</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item"><input type="checkbox" name="Connectivity" value="Isolated"> Isolated</label>
+                        <label class="checkbox-item"><input type="checkbox" name="Connectivity" value="Part of a complex"> Part of a complex</label>
+                        <label class="checkbox-item"><input type="checkbox" name="Connectivity" value="Culvert"> Culvert</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Water Source</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item"><input type="checkbox" name="Water Source" value="Precipitation"> Precipitation</label>
+                        <label class="checkbox-item"><input type="checkbox" name="Water Source" value="Run-off"> Run-off</label>
+                        <label class="checkbox-item"><input type="checkbox" name="Water Source" value="Groundwater"> Groundwater</label>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+        <button type="submit" class="btn-submit">Submit Assessment Form</button>
+    </form>
+
+    <!-- COMPLETED VIEW CONTAINER -->
+    <div id="rendered-view">
+        <div class="actions-bar">
+            <button class="btn-action btn-secondary" onclick="editForm()">Edit Form</button>
+            <button class="btn-action" onclick="window.print()">Print / Save as PDF</button>
+        </div>
+        <div id="summary-content"></div>
+    </div>
+</div>
+
+<script>
+    // ----------------------------------------------------
+    // 1. FORM TO COMPLETED WEBPAGE RENDERING
+    // ----------------------------------------------------
+    const form = document.getElementById('assessment-form');
+    const renderedView = document.getElementById('rendered-view');
+    const summaryContent = document.getElementById('summary-content');
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+        const dataMap = {};
+
+        // Aggregate field data
+        for (let [key, value] of formData.entries()) {
+            if (value.trim() !== "") {
+                if (dataMap[key]) {
+                    dataMap[key] += `, ${value}`;
+                } else {
+                    dataMap[key] = value;
+                }
+            }
+        }
+
+        // Build HTML for rendered view
+        let html = '';
+        html += `<div class="rendered-section"><h3>Assessment Summary</h3><div class="rendered-grid">`;
+
+        for (let key in dataMap) {
+            html += `<div class="data-item"><span>${key}:</span> ${dataMap[key]}</div>`;
+        }
+
+        html += `</div></div>`;
+
+        summaryContent.innerHTML = html;
+        form.style.display = 'none';
+        renderedView.style.display = 'block';
+        window.scrollTo(0, 0);
+    });
+
+    function editForm() {
+        renderedView.style.display = 'none';
+        form.style.display = 'block';
+    }
+
+    // ----------------------------------------------------
+    // 2. INLINE PWA MANIFEST INJECTION
+    // ----------------------------------------------------
+    const manifest = {
+        "name": "Wetland Assessment App",
+        "short_name": "WetlandApp",
+        "start_url": "./index.html",
+        "display": "standalone",
+        "background_color": "#eef2ee",
+        "theme_color": "#2d5a27",
+        "icons": [
+            {
+                "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%232d5a27'/><text y='65' x='20' fill='white' font-size='50'>🌿</text></svg>",
+                "sizes": "192x192 512x512",
+                "type": "image/svg+xml"
+            }
+        ]
+    };
+    const stringManifest = JSON.stringify(manifest);
+    const blobManifest = new Blob([stringManifest], {type: 'application/json'});
+    const manifestURL = URL.createObjectURL(blobManifest);
+    document.getElementById('manifest-placeholder').setAttribute('href', manifestURL);
+
+    // ----------------------------------------------------
+    // 3. SERVICE WORKER FOR 100% OFFLINE CAPABILITY
+    // ----------------------------------------------------
+    if ('serviceWorker' in navigator) {
+        const swCode = `
+            const CACHE_NAME = 'wetland-pwa-v1';
+            self.addEventListener('install', (e) => {
+                e.waitUntil(
+                    caches.open(CACHE_NAME).then((cache) => {
+                        return cache.addAll(['./', './index.html']);
+                    })
+                );
+                self.skipWaiting();
+            });
+
+            self.addEventListener('fetch', (e) => {
+                e.respondWith(
+                    caches.match(e.request).then((res) => {
+                        return res || fetch(e.request);
+                    })
+                );
+            });
+        `;
+
+        const blob = new Blob([swCode], { type: 'application/javascript' });
+        const workerUrl = URL.createObjectURL(blob);
+
+        navigator.serviceWorker.register(workerUrl)
+            .then(() => console.log('Offline PWA Service Worker Registered'))
+            .catch(err => console.error('Service Worker Registration Failed', err));
+    }
+</script>
+</body>
+</html>
