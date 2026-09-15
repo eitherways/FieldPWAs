@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wetland Field Assessment Form - Pintail Environmental Consulting</title>
+    <style>
+        :root {
+            --primary: #2d5a27;
+            --secondary: #4a7c59;
+            --light-bg: #f4f7f4;
+            --border: #ccc;
+            --text: #333;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: var(--text);
+            background-color: #eef2ee;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            color: var(--primary);
+            margin: 0;
+            font-size: 24px;
+            text-transform: uppercase;
+        }
+
+        .company-title {
+            text-align: right;
+            font-weight: bold;
+            color: var(--secondary);
+        }
+
+        fieldset {
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: #fafafa;
+        }
+
+        legend {
+            font-weight: bold;
+            color: var(--primary);
+            padding: 0 8px;
+            font-size: 1.1em;
+            text-transform: uppercase;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"], input[type="date"], select, textarea {
+            padding: 8px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 0.95em;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9em;
+        }
+
+        .checkbox-item input {
+            cursor: pointer;
+        }
+
+        .info-box {
+            background-color: #eaf2ea;
+            border-left: 4px solid var(--primary);
+            padding: 10px;
+            font-size: 0.85em;
+            margin-top: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+
+        th, td {
+            border: 1px solid var(--border);
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--secondary);
+            color: white;
+        }
+
+        .btn-submit {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--secondary);
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            .company-title {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div>
+            <h1>Wetland Field Assessment Form</h1>
+        </div>
+        <div class="company-title">
+            PINTAIL<br>
+            <small>ENVIRONMENTAL CONSULTING INC.</small>
+        </div>
+    </header>
+
+    <form action="#" method="post">
+        
+        <!-- GENERAL INFORMATION -->
+        <fieldset>
+            <legend>General Information</legend>
+            <div class="grid">
+                <div class="form-group">
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date">
+                </div>
+                <div class="form-group">
+                    <label for="project_num">Project #:</label>
+                    <input type="text" id="project_num" name="project_num">
+                </div>
+                <div class="form-group">
+                    <label for="assessor">Assessor:</label>
+                    <input type="text" id="assessor" name="assessor">
+                </div>
+                <div class="form-group">
+                    <label for="wetland_num">Wetland #:</label>
+                    <input type="text" id="wetland_num" name="wetland_num">
+                </div>
+                <div class="form-group">
+                    <label for="legal_loc">Legal Location:</label>
+                    <input type="text" id="legal_loc" name="legal_loc">
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- LOCATION INFORMATION -->
+        <fieldset>
+            <legend>Location Information</legend>
+            <div class="grid">
+                <div class="form-group">
+                    <label for="waypoint">Waypoint #:</label>
+                    <input type="text" id="waypoint" name="waypoint">
+                </div>
+                <div class="form-group">
+                    <label for="zone">Zone:</label>
+                    <input type="text" id="zone" name="zone">
+                </div>
+                <div class="form-group">
+                    <label for="easting">Easting (E):</label>
+                    <input type="text" id="easting" name="easting">
+                </div>
+                <div class="form-group">
+                    <label for="northing">Northing (N):</label>
+                    <input type="text" id="northing" name="northing">
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- SURROUNDING LANDUSE -->
+        <fieldset>
+            <legend>Surrounding Landuse (Adjacent to and easily visible)</legend>
+            <div class="grid">
+                <div class="form-group">
+                    <label>Development</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item"><input type="checkbox" name="landuse[]" value="Industrial"> Industrial</label>
+                        <label class="checkbox-item"><input type="checkbox" name="landuse[]" value="Commercial"> Commercial</label>
+                        <label class="checkbox-item"><input type="checkbox" name="landuse[]" value="Residential"> Residential</label>
+                        <label class="checkbox-item"><input type="checkbox" name="landuse[]" value="Acreage"> Acreage</label>
+                        <label class="checkbox-item"><input type="checkbox" name="landuse[]" value="Wellsite"> Wellsite</label>
+                        <label class="checkbox-item"><input type="checkbox" name="landuse[]" value="Facility"> Facility</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Transportation</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item"><input type="checkbox" name="landuse[]" value="Railway"> Railway</label>
+                        <label class="checkbox-item"><input type="checkbox" name="landuse[]" value="Lease Road"> Lease Road</label>
+                        <label class="checkbox-item"><input type="checkbox" name="landuse[]" value="High Grade Gravel"> High Grade Gravel</label>
+                        <label class="checkbox-item"><input type="checkbox" name="landuse[]" value="Paved Highway/Road"> Paved Highway/Road</label>
+                        <label class="checkbox-item"><input type="checkbox" name="landuse[]" value="Trail"> Trail</label>
+                        <label class="checkbox-item"><input type="checkbox" name="landuse[]" value="Seismic Line"> Seismic Line</label>
+                        <label class="checkbox-item"><input type="checkbox" name="landuse[]" value="Pipeline"> Pipeline</label>
+                        <label class="checkbox-item"><input type="checkbox" name="landuse[]" value="Transmission Line"> Transmission Line</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Agricultural & Energy</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item"><input type="checkbox" name="landuse[]" value="Tame Pasture"> Tame Pasture</label>
+                        <label class="checkbox-item"><input type="checkbox" name="landuse[]" value="Farmyard"> Farmyard</label>
+                        <label class="checkbox-item"><input type="checkbox" name="landuse[]" value="Hay"> Hay</label>
+                        <label class="checkbox-item"><input type="checkbox" name="landuse[]" value="Cultivated"> Cultivated</label>
+                        <label class="checkbox-item"><input type="checkbox" name="landuse[]" value="Wind Turbines"> Wind Turbines</label>
+                        <label class="checkbox-item"><input type="checkbox" name="landuse[]" value="Solar"> Solar</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Upland & Forestry</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item"><input type="checkbox" name="landuse[]" value="Native Shrub"> Native Shrub</label>
+                        <label class="checkbox-item"><input type="checkbox" name="landuse[]" value="Mixedwood"> Mixedwood</label>
+                        <label class="checkbox-item"><input type="checkbox" name="landuse[]" value="Treed/Forested"> Treed/Forested</label>
+                        <label class="checkbox-item"><input type="checkbox" name="landuse[]" value="Coniferous"> Coniferous</label>
+                        <label class="checkbox-item"><input type="checkbox" name="landuse[]" value="Grassland"> Grassland</label>
+                        <label class="checkbox-item"><input type="checkbox" name="landuse[]" value="Cutblock"> Cutblock</label>
+                        <label class="checkbox-item"><input type="checkbox" name="landuse[]" value="Regenerating Cutblock"> Regenerating Cutblock</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group" style="margin-top: 15px;">
+                <label for="landuse_notes">Other / Things to Note:</label>
+                <textarea id="landuse_notes" name="landuse_notes"></textarea>
+            </div>
+        </fieldset>
+
+        <!-- WETLAND CLASSIFICATION -->
+        <fieldset>
+            <legend>Wetland Classification</legend>
+            <div class="grid">
+                <div class="form-group">
+                    <label for="class">Class:</label>
+                    <select id="class" name="class">
+                        <option value="">-- Select Class --</option>
+                        <option value="Bog [B]">Bog [B]</option>
+                        <option value="Fen [F]">Fen [F]</option>
+                        <option value="Marsh [M]">Marsh [M]</option>
+                        <option value="Swamp [S]">Swamp [S]</option>
+                        <option value="Shallow Open Water [W]">Shallow Open Water [W]</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="form">Form:</label>
+                    <select id="form" name="form">
+                        <option value="">-- Select Form --</option>
+                        <option value="Wooded, coniferous [Wc]">Wooded, coniferous [Wc]</option>
+                        <option value="Wooded, mixedwood [Wm]">Wooded, mixedwood [Wm]</option>
+                        <option value="Wooded, deciduous [Wd]">Wooded, deciduous [Wd]</option>
+                        <option value="Shrubby [S]">Shrubby [S]</option>
+                        <option value="Graminoid [G]">Graminoid [G]</option>
+                        <option value="Submersed / floating veg [A]">Submersed / floating veg [A]</option>
+                        <option value="Bare [B]">Bare [B]</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="salinity">Salinity:</label>
+                    <select id="salinity" name="salinity">
+                        <option value="">-- Select Salinity --</option>
+                        <option value="Freshwater [f]">Freshwater [f]</option>
+                        <option value="Slightly brackish [sb]">Slightly brackish [sb]</option>
+                        <option value="Moderately brackish [mb]">Moderately brackish [mb]</option>
+                        <option value="Brackish [b]">Brackish [b]</option>
+                        <option value="Sub-saline [ss]">Sub-saline [ss]</option>
+                        <option value="Saline [s]">Saline [s]</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="permanence">Permanence:</label>
+                    <select id="permanence" name="permanence">
+                        <option value="">-- Select Permanence --</option>
+                        <option value="Temporary [II]">Temporary [II]</option>
+                        <option value="Seasonal [III]">Seasonal [III]</option>
+                        <option value="Semi-permanent [IV]">Semi-permanent [IV]</option>
+                        <option value="Permanent [V]">Permanent [V]</option>
+                        <option value="Intermittent [VI]">Intermittent [VI]</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="grid" style="margin-top: 15px;">
+                <div class="form-group">
+                    <label for="ec_reading">EC Reading (&mu;S/cm):</label>
+                    <input type="text" id="ec_reading" name="ec_reading">
+                </div>
+                <div class="form-group">
+                    <label for="ph_reading">pH Reading:</label>
+                    <input type="text" id="ph_reading" name="ph_reading">
+                </div>
+            </div>
+
+            <div class="info-box">
+                <strong>EC Guidelines:</strong> Freshwater (&lt;500 &mu;S/cm) | Slightly brackish (500–1,999 &mu;S/cm) | Moderately brackish (2,000–4,999 &mu;S/cm) | Brackish (5,000–14,999 &mu;S/cm) | Sub-saline (15,000–44,999 &mu;S/cm) | Saline (&gt;45,000 &mu;S/cm)<br>
+                <strong>pH Guidelines:</strong> Acidic [a] (&lt;4.5) | Poor [p] (&lt;5.5) | Moderate-rich [mr] (5.5–7.0) | Extreme-rich [er] (&gt;7.0)
+            </div>
+        </fieldset>
+
+        <!-- HYDROLOGY -->
+        <fieldset>
+            <legend>Hydrology</legend>
+            <div class="grid">
+                <div class="form-group">
+                    <label>Connectivity</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item"><input type="checkbox" name="connectivity[]" value="Isolated"> Isolated</label>
+                        <label class="checkbox-item"><input type="checkbox" name="connectivity[]" value="Part of a complex"> Part of a complex</label>
+                        <label class="checkbox-item"><input type="checkbox" name="connectivity[]" value="Culvert"> Culvert</label>
+                        <label class="checkbox-item"><input type="checkbox" name="connectivity[]" value="Restricted (dammed, etc.)"> Restricted (dammed, etc.)</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Inlet/Outlet</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item"><input type="checkbox" name="inlet_outlet[]" value="Present"> Present</label>
+                        <label class="checkbox-item"><input type="checkbox" name="inlet_outlet[]" value="Absent"> Absent</label>
+                        <label class="checkbox-item"><input type="checkbox" name="inlet_outlet[]" value="Watercourse"> Watercourse</label>
+                        <label class="checkbox-item"><input type="checkbox" name="inlet_outlet[]" value="Intermittent Watercourse"> Intermittent Watercourse</label>
+                        <label class="checkbox-item"><input type="checkbox" name="inlet_outlet[]" value="Drainage"> Drainage</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Water Source</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item"><input type="checkbox" name="water_source[]" value="Precipitation"> Precipitation</label>
+                        <label class="checkbox-item"><input type="checkbox" name="water_source[]" value="Run-off"> Run-off</label>
+                        <label class="checkbox-item"><input type="checkbox" name="water_source[]" value="Groundwater"> Groundwater</label>
+                        <label class="checkbox-item"><input type="checkbox" name="water_source[]" value="Lake"> Lake</label>
+                        <label class="checkbox-item"><input type="checkbox" name="water_source[]" value="Spring/Seep"> Spring/Seep</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Standing / Open Water</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item"><input type="checkbox" name="water_depth[]" value="Present"> Present</label>
+                        <label class="checkbox-item"><input type="checkbox" name="water_depth[]" value="Absent"> Absent</label>
+                        <label class="checkbox-item"><input type="checkbox" name="water_depth[]" value="In low areas"> In low areas</label>
+                        <label class="checkbox-item"><input type="checkbox" name="water_depth[]" value="Saturated soil"> Saturated soil</label>
+                        <label class="checkbox-item"><input type="checkbox" name="water_depth[]" value="Pockets"> Pockets</label>
+                        <label class="checkbox-item"><input type="checkbox" name="water_depth[]" value="Dry soil"> Dry soil</label>
+                        <label class="checkbox-item"><input type="checkbox" name="water_depth[]" value="<0.5 m deep"> &lt;0.5 m deep</label>
+                        <label class="checkbox-item"><input type="checkbox" name="water_depth[]" value="0.5-1 m deep"> 0.5 - 1 m deep</label>
+                        <label class="checkbox-item"><input type="checkbox" name="water_depth[]" value=">1 m deep"> &gt;1 m deep</label>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- SOIL CHARACTERISTICS -->
+        <fieldset>
+            <legend>Soil Characteristics</legend>
+            <div class="grid">
+                <div class="form-group">
+                    <label>Soils & Texture</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item"><input type="checkbox" name="soils[]" value="Organic peat (>40 cm)"> Organic peat (&gt;40 cm thick)</label>
+                        <label class="checkbox-item"><input type="checkbox" name="soils[]" value="Peat veneer (<40 cm)"> Peat veneer (&lt;40 cm thick)</label>
+                        <label class="checkbox-item"><input type="checkbox" name="soils[]" value="Mineral soil"> Mineral soil</label>
+                        <label class="checkbox-item"><input type="checkbox" name="soils[]" value="Clay"> Clay</label>
+                        <label class="checkbox-item"><input type="checkbox" name="soils[]" value="Clay loam"> Clay loam</label>
+                        <label class="checkbox-item"><input type="checkbox" name="soils[]" value="Loam"> Loam</label>
+                        <label class="checkbox-item"><input type="checkbox" name="soils[]" value="Sand"> Sand</label>
+                        <label class="checkbox-item"><input type="checkbox" name="soils[]" value="Sandy loam"> Sandy loam</label>
+                        <label class="checkbox-item"><input type="checkbox" name="soils[]" value="Sandy clay loam"> Sandy clay loam</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Mottles / Gleying & Features</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item"><input type="checkbox" name="mottles[]" value="Mottles/gleying present"> Mottles/gleying present</label>
+                        <label class="checkbox-item"><input type="checkbox" name="mottles[]" value="Saturated"> Saturated</label>
+                        <label class="checkbox-item"><input type="checkbox" name="mottles[]" value="Non-saturated"> Non-saturated</label>
+                        <label class="checkbox-item"><input type="checkbox" name="mottles[]" value="Alkali/crust patches"> Alkali/crust patches</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Von Post Scale Decomposition</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item"><input type="radio" name="von_post" value="Slightly decomposed (H1-H3)"> Slightly decomposed (H1-H3; plant structure identifiable)</label>
+                        <label class="checkbox-item"><input type="radio" name="von_post" value="Moderately decomposed (H4-H7)"> Moderately decomposed (H4-H7; general structure identifiable)</label>
+                        <label class="checkbox-item"><input type="radio" name="von_post" value="Highly decomposed (H8-H10)"> Highly decomposed (H8-H10; little identifiable parts)</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group" style="margin-top: 15px;">
+                <label for="depth_mottling">Depth to Mottling or Gleying in Each Plot:</label>
+                <input type="text" id="depth_mottling" name="depth_mottling">
+            </div>
+        </fieldset>
+
+        <!-- HABITAT POTENTIAL -->
+        <fieldset>
+            <legend>Habitat Potential</legend>
+            <div class="grid">
+                <div class="form-group">
+                    <label>Bird Habitat</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item"><input type="checkbox" name="bird_habitat[]" value="Woody riparian area"> Woody riparian area</label>
+                        <label class="checkbox-item"><input type="checkbox" name="bird_habitat[]" value="Wildlife tree/snag/cavity"> Wildlife tree / snag / cavity</label>
+                        <label class="checkbox-item"><input type="checkbox" name="bird_habitat[]" value="Nesting behaviour"> Nesting behaviour</label>
+                        <label class="checkbox-item"><input type="checkbox" name="bird_habitat[]" value="Breeding behaviour"> Breeding behaviour</label>
+                        <label class="checkbox-item"><input type="checkbox" name="bird_habitat[]" value="Mudflats"> Mudflats</label>
+                        <label class="checkbox-item"><input type="checkbox" name="bird_habitat[]" value="Aquatic invertebrates"> Aquatic invertebrates</label>
+                        <label class="checkbox-item"><input type="checkbox" name="bird_habitat[]" value="Staging area"> Staging area</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Ungulate Habitat</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item"><input type="checkbox" name="ungulate_habitat[]" value="Emergent vegetation along margins"> Emergent veg along margins</label>
+                        <label class="checkbox-item"><input type="checkbox" name="ungulate_habitat[]" value="Mature conifer buffer (>1 m tall)"> Mature conifer buffer (&gt;1 m)</label>
+                        <label class="checkbox-item"><input type="checkbox" name="ungulate_habitat[]" value="Graminoid veg next to open water"> Graminoid veg next to water</label>
+                        <label class="checkbox-item"><input type="checkbox" name="ungulate_habitat[]" value="Tall graminoid vegetation (>75 cm)"> Tall graminoid veg (&gt;75 cm)</label>
+                        <label class="checkbox-item"><input type="checkbox" name="ungulate_habitat[]" value="Open meadow with shrub/sedge"> Open meadow w/ shrub/sedge</label>
+                        <label class="checkbox-item"><input type="checkbox" name="ungulate_habitat[]" value="Mosaic wetland vegetation"> Mosaic wetland vegetation</label>
+                        <label class="checkbox-item"><input type="checkbox" name="ungulate_habitat[]" value="Visual/Browsing/Tracks/Scat"> Visual / Browsing / Tracks / Scat</label>
+                        <label class="checkbox-item"><input type="checkbox" name="ungulate_habitat[]" value="Salt lick/wallow"> Salt lick / wallow</label>
+                        <label class="checkbox-item"><input type="checkbox" name="ungulate_habitat[]" value="Corridor/South-facing slope"> Corridor / South-facing slope</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Amphibian Habitat</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item"><input type="checkbox" name="amphibian_habitat[]" value="Visual"> Visual</label>
+                        <label class="checkbox-item"><input type="checkbox" name="amphibian_habitat[]" value="Auditory"> Auditory</label>
+                        <label class="checkbox-item"><input type="checkbox" name="amphibian_habitat[]" value="Eggs"> Eggs</label>
+                        <label class="checkbox-item"><input type="checkbox" name="amphibian_habitat[]" value="Young of Year"> Young of Year</label>
+                        <label class="checkbox-item"><input type="checkbox" name="amphibian_habitat[]" value="Adults"> Adults</label>
+                        <label class="checkbox-item"><input type="checkbox" name="amphibian_habitat[]" value="Adjacent upland with sandy soils"> Adjacent upland (sandy soils)</label>
+                        <label class="checkbox-item"><input type="checkbox" name="amphibian_habitat[]" value="Exposed wetland margin"> Exposed wetland margin</label>
+                        <label class="checkbox-item"><input type="checkbox" name="amphibian_habitat[]" value="Woody debris"> Woody debris</label>
+                        <label class="checkbox-item"><input type="checkbox" name="amphibian_habitat[]" value="Emergent vegetation"> Emergent vegetation</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Beaver & Muskrat Habitat</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item"><input type="checkbox" name="beaver_habitat[]" value="Visual"> Visual</label>
+                        <label class="checkbox-item"><input type="checkbox" name="beaver_habitat[]" value="Auditory"> Auditory</label>
+                        <label class="checkbox-item"><input type="checkbox" name="beaver_habitat[]" value="Lodge"> Lodge</label>
+                        <label class="checkbox-item"><input type="checkbox" name="beaver_habitat[]" value="Push up"> Push up</label>
+                        <label class="checkbox-item"><input type="checkbox" name="beaver_habitat[]" value="Dam"> Dam</label>
+                        <label class="checkbox-item"><input type="checkbox" name="beaver_habitat[]" value="Downed trees / Teeth marks"> Downed trees / Teeth marks</label>
+                        <label class="checkbox-item"><input type="checkbox" name="beaver_habitat[]" value="Deep channel / Burrows"> Deep channel / Burrows</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group" style="margin-top: 15px;">
+                <label for="wildlife_comments">Incidental Wildlife Observations / Comments:</label>
+                <textarea id="wildlife_comments" name="wildlife_comments"></textarea>
+            </div>
+        </fieldset>
+
+        <!-- VEGETATION CHARACTERISTICS -->
+        <fieldset>
+            <legend>Vegetation Characteristics</legend>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Plot/Transect #</th>
+                        <th>Waypoint #</th>
+                        <th>Species / Name</th>
+                        <th>% Cover</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" name="plot_num[]"></td>
+                        <td><input type="text" name="veg_waypoint[]"></td>
+                        <td><input type="text" name="species_name[]"></td>
+                        <td><input type="text" name="percent_cover[]"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="plot_num[]"></td>
+                        <td><input type="text" name="veg_waypoint[]"></td>
+                        <td><input type="text" name="species_name[]"></td>
+                        <td><input type="text" name="percent_cover[]"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="plot_num[]"></td>
+                        <td><input type="text" name="veg_waypoint[]"></td>
+                        <td><input type="text" name="species_name[]"></td>
+                        <td><input type="text" name="percent_cover[]"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="plot_num[]"></td>
+                        <td><input type="text" name="veg_waypoint[]"></td>
+                        <td><input type="text" name="species_name[]"></td>
+                        <td><input type="text" name="percent_cover[]"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4 style="margin-top: 20px; color: var(--primary);">Weed Density Rating</h4>
+            <div class="grid">
+                <div class="checkbox-group">
+                    <label class="checkbox-item"><input type="radio" name="weed_density" value="0"> None (0)</label>
+                    <label class="checkbox-item"><input type="radio" name="weed_density" value="1"> Single (1)</label>
+                    <label class="checkbox-item"><input type="radio" name="weed_density" value="2"> Few (2)</label>
+                    <label class="checkbox-item"><input type="radio" name="weed_density" value="3"> Single patch (3)</label>
+                </div>
+                <div class="checkbox-group">
+                    <label class="checkbox-item"><input type="radio" name="weed_density" value="4"> Several (4)</label>
+                    <label class="checkbox-item"><input type="radio" name="weed_density" value="5"> Few patches (5)</label>
+                    <label class="checkbox-item"><input type="radio" name="weed_density" value="6"> Several patches (6)</label>
+                </div>
+                <div class="checkbox-group">
+                    <label class="checkbox-item"><input type="radio" name="weed_density" value="7"> Continuous (7)</label>
+                    <label class="checkbox-item"><input type="radio" name="weed_density" value="8"> Blanket with gaps (8)</label>
+                    <label class="checkbox-item"><input type="radio" name="weed_density" value="9"> Complete blanket (9)</label>
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- REFERENCE DATA -->
+        <fieldset>
+            <legend>Reference: Von Post Scale (Level of Decomposition)</legend>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Level</th>
+                        <th>Decomposition</th>
+                        <th>Nature of Residues</th>
+                        <th>Nature of Liquids Expressed</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>H1</td><td>Undecomposed</td><td>Plant structure unaltered</td><td>Clear water, light yellow/brown</td></tr>
+                    <tr><td>H2</td><td>Almost undecomposed</td><td>Structure distinct</td><td>Almost clear yellow/brown</td></tr>
+                    <tr><td>H3</td><td>Very weakly decomposed</td><td>Structure distinct, most identifiable</td><td>Slightly turbid brown</td></tr>
+                    <tr><td>H4</td><td>Weakly decomposed</td><td>Structure distinct, most identifiable</td><td>Strongly turbid water</td></tr>
+                    <tr><td>H5</td><td>Moderately decomposed</td><td>Structure clear, becoming indistinct</td><td>Strongly turbid, little peat in suspension</td></tr>
+                    <tr><td>H6</td><td>Well decomposed</td><td>Structure indistinct</td><td>Muddy, much peat in suspension</td></tr>
+                    <tr><td>H7</td><td>Strongly decomposed</td><td>Indistinct, few remains identifiable</td><td>Strongly muddy</td></tr>
+                    <tr><td>H8</td><td>Very strongly decomposed</td><td>Fibres and wood identifiable</td><td>Thick mud, little free water</td></tr>
+                    <tr><td>H9</td><td>Almost completely decomposed</td><td>Structure almost unrecognisable</td><td>No free water</td></tr>
+                    <tr><td>H10</td><td>Completely decomposed</td><td>Completely amorphous</td><td>No free water</td></tr>
+                </tbody>
+            </table>
+        </fieldset>
+
+        <button type="submit" class="btn-submit">Submit Assessment Form</button>
+    </form>
+</div>
+
+</body>
+</html>
