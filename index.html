@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wetland Field Assessment - Pintail Environmental Consulting</title>
+    <title>Wetland Field Assessment Form - Pintail Environmental Consulting</title>
     
     <!-- PWA Primary Color & Manifest -->
     <meta name="theme-color" content="#2d5a27">
@@ -304,6 +304,7 @@
                         <label class="checkbox-item"><input type="checkbox" name="landuse[]" value="Industrial"> Industrial</label>
                         <label class="checkbox-item"><input type="checkbox" name="landuse[]" value="Commercial"> Commercial</label>
                         <label class="checkbox-item"><input type="checkbox" name="landuse[]" value="Residential"> Residential</label>
+                        <label class="checkbox-item"><input type="checkbox" name="landuse[]" value="Farmyard"> Farmyard</label>
                         <label class="checkbox-item"><input type="checkbox" name="landuse[]" value="Acreage"> Acreage</label>
                         <label class="checkbox-item"><input type="checkbox" name="landuse[]" value="Wellsite"> Wellsite</label>
                         <label class="checkbox-item"><input type="checkbox" name="landuse[]" value="Facility"> Facility</label>
@@ -325,8 +326,8 @@
                 <div class="form-group">
                     <label>Agricultural & Energy</label>
                     <div class="checkbox-group">
+                        <label class="checkbox-item"><input type="checkbox" name="landuse[]" value="Native"> Native</label>
                         <label class="checkbox-item"><input type="checkbox" name="landuse[]" value="Tame Pasture"> Tame Pasture</label>
-                        <label class="checkbox-item"><input type="checkbox" name="landuse[]" value="Farmyard"> Farmyard</label>
                         <label class="checkbox-item"><input type="checkbox" name="landuse[]" value="Hay"> Hay</label>
                         <label class="checkbox-item"><input type="checkbox" name="landuse[]" value="Cultivated"> Cultivated</label>
                         <label class="checkbox-item"><input type="checkbox" name="landuse[]" value="Wind Turbines"> Wind Turbines</label>
@@ -336,7 +337,7 @@
                 <div class="form-group">
                     <label>Upland & Forestry</label>
                     <div class="checkbox-group">
-                        <label class="checkbox-item"><input type="checkbox" name="landuse[]" value="Native Shrub"> Native Shrub</label>
+                        <label class="checkbox-item"><input type="checkbox" name="landuse[]" value="Shrub"> Native Shrub</label>
                         <label class="checkbox-item"><input type="checkbox" name="landuse[]" value="Mixedwood"> Mixedwood</label>
                         <label class="checkbox-item"><input type="checkbox" name="landuse[]" value="Treed/Forested"> Treed/Forested</label>
                         <label class="checkbox-item"><input type="checkbox" name="landuse[]" value="Coniferous"> Coniferous</label>
@@ -420,7 +421,6 @@
                 <strong>EC Guidelines:</strong> Freshwater (&lt;500 &mu;S/cm) | Slightly brackish (500–1,999 &mu;S/cm) | Moderately brackish (2,000–4,999 &mu;S/cm) | Brackish (5,000–14,999 &mu;S/cm) | Sub-saline (15,000–44,999 &mu;S/cm) | Saline (&gt;45,000 &mu;S/cm)<br>
                 <strong>pH Guidelines:</strong> Acidic [a] (&lt;4.5) | Poor [p] (&lt;5.5) | Moderate-rich [mr] (5.5–7.0) | Extreme-rich [er] (&gt;7.0)
             </div>
-
         </fieldset>
 
         <!-- HYDROLOGY -->
@@ -433,7 +433,6 @@
                         <label class="checkbox-item"><input type="checkbox" name="Connectivity" value="Isolated"> Isolated</label>
                         <label class="checkbox-item"><input type="checkbox" name="Connectivity" value="Part of a complex"> Part of a complex</label>
                         <label class="checkbox-item"><input type="checkbox" name="Connectivity" value="Culvert"> Culvert</label>
-                        <label class="checkbox-item"><input type="checkbox" name="Connectivity" value="Restricted (dammed, etc.)"> Restricted (dammed, etc.)</label>
                     </div>
                 </div>
                 <div class="form-group">
@@ -443,6 +442,7 @@
                         <label class="checkbox-item"><input type="checkbox" name="inlet_outlet[]" value="Absent"> Absent</label>
                         <label class="checkbox-item"><input type="checkbox" name="inlet_outlet[]" value="Watercourse"> Watercourse</label>
                         <label class="checkbox-item"><input type="checkbox" name="inlet_outlet[]" value="Intermittent Watercourse"> Intermittent Watercourse</label>
+                        <label class="checkbox-item"><input type="checkbox" name="inlet_outlet[]" value="Restricted (dammed, etc.)"> Restricted (dammed, etc.)</label>
                         <label class="checkbox-item"><input type="checkbox" name="inlet_outlet[]" value="Drainage"> Drainage</label>
                     </div>
                 </div>
@@ -452,6 +452,7 @@
                         <label class="checkbox-item"><input type="checkbox" name="Water Source" value="Precipitation"> Precipitation</label>
                         <label class="checkbox-item"><input type="checkbox" name="Water Source" value="Run-off"> Run-off</label>
                         <label class="checkbox-item"><input type="checkbox" name="Water Source" value="Groundwater"> Groundwater</label>
+                        <label class="checkbox-item"><input type="checkbox" name="Water Source" value="Watercourse"> Watercourse</label>
                         <label class="checkbox-item"><input type="checkbox" name="Water Source" value="Lake"> Lake</label>
                         <label class="checkbox-item"><input type="checkbox" name="Water Source" value="Spring/Seep"> Spring/Seep</label>
                     </div>
@@ -465,6 +466,8 @@
                         <label class="checkbox-item"><input type="checkbox" name="water_depth[]" value="Saturated soil"> Saturated soil</label>
                         <label class="checkbox-item"><input type="checkbox" name="water_depth[]" value="Pockets"> Pockets</label>
                         <label class="checkbox-item"><input type="checkbox" name="water_depth[]" value="Dry soil"> Dry soil</label>
+                        <label class="checkbox-item"><input type="checkbox" name="water_depth[]" value="Pockets of bare soil"> Pockets of bare soil</label>
+                        <label class="checkbox-item"><input type="checkbox" name="water_depth[]" value="Fully vegetated"> Fully vegetated</label>
                         <label class="checkbox-item"><input type="checkbox" name="water_depth[]" value="<0.5 m deep"> &lt;0.5 m deep</label>
                         <label class="checkbox-item"><input type="checkbox" name="water_depth[]" value="0.5-1 m deep"> 0.5 - 1 m deep</label>
                         <label class="checkbox-item"><input type="checkbox" name="water_depth[]" value=">1 m deep"> &gt;1 m deep</label>
@@ -489,6 +492,9 @@
                         <label class="checkbox-item"><input type="checkbox" name="soils[]" value="Sand"> Sand</label>
                         <label class="checkbox-item"><input type="checkbox" name="soils[]" value="Sandy loam"> Sandy loam</label>
                         <label class="checkbox-item"><input type="checkbox" name="soils[]" value="Sandy clay loam"> Sandy clay loam</label>
+                        <label class="checkbox-item"><input type="checkbox" name="soils[]" value="Organic"> Organic</label>
+                        <label class="checkbox-item"><input type="checkbox" name="soils[]" value="Silty Clay"> Silty Clay</label>
+                        <label class="checkbox-item"><input type="checkbox" name="soils[]" value="Silt loam"> Silt loam</label>
                     </div>
                 </div>
                 <div class="form-group">
@@ -541,8 +547,14 @@
                         <label class="checkbox-item"><input type="checkbox" name="ungulate_habitat[]" value="Open meadow with shrub/sedge"> Open meadow w/ shrub/sedge</label>
                         <label class="checkbox-item"><input type="checkbox" name="ungulate_habitat[]" value="Mosaic wetland vegetation"> Mosaic wetland vegetation</label>
                         <label class="checkbox-item"><input type="checkbox" name="ungulate_habitat[]" value="Visual/Browsing/Tracks/Scat"> Visual / Browsing / Tracks / Scat</label>
-                        <label class="checkbox-item"><input type="checkbox" name="ungulate_habitat[]" value="Salt lick/wallow"> Salt lick / wallow</label>
-                        <label class="checkbox-item"><input type="checkbox" name="ungulate_habitat[]" value="Corridor/South-facing slope"> Corridor / South-facing slope</label>
+                        <label class="checkbox-item"><input type="checkbox" name="ungulate_habitat[]" value="Salt lick"> Salt lick</label>
+                        <label class="checkbox-item"><input type="checkbox" name="ungulate_habitat[]" value="wallow"> Wallow</label>
+                        <label class="checkbox-item"><input type="checkbox" name="ungulate_habitat[]" value="Beds"> Beds</label>
+                        <label class="checkbox-item"><input type="checkbox" name="ungulate_habitat[]" value="Game trails"> Game trails</label>
+                        <label class="checkbox-item"><input type="checkbox" name="ungulate_habitat[]" value="Antler rubs/Bear claw marks"> Antler rubs / Bear claw marks</label>
+                        <label class="checkbox-item"><input type="checkbox" name="ungulate_habitat[]" value="Tracks"> Tracks</label>
+                        <label class="checkbox-item"><input type="checkbox" name="ungulate_habitat[]" value="Corridor"> Corridor</label>
+                        <label class="checkbox-item"><input type="checkbox" name="ungulate_habitat[]" value="South-facing slope"> South-facing slope</label>
                     </div>
                 </div>
                 <div class="form-group">
@@ -553,6 +565,7 @@
                         <label class="checkbox-item"><input type="checkbox" name="amphibian_habitat[]" value="Eggs"> Eggs</label>
                         <label class="checkbox-item"><input type="checkbox" name="amphibian_habitat[]" value="Young of Year"> Young of Year</label>
                         <label class="checkbox-item"><input type="checkbox" name="amphibian_habitat[]" value="Adults"> Adults</label>
+                        <label class="checkbox-item"><input type="checkbox" name="amphibian_habitat[]" value="Existing burrows"> Existing burrows</label>
                         <label class="checkbox-item"><input type="checkbox" name="amphibian_habitat[]" value="Adjacent upland with sandy soils"> Adjacent upland (sandy soils)</label>
                         <label class="checkbox-item"><input type="checkbox" name="amphibian_habitat[]" value="Exposed wetland margin"> Exposed wetland margin</label>
                         <label class="checkbox-item"><input type="checkbox" name="amphibian_habitat[]" value="Woody debris"> Woody debris</label>
@@ -568,7 +581,8 @@
                         <label class="checkbox-item"><input type="checkbox" name="beaver_habitat[]" value="Push up"> Push up</label>
                         <label class="checkbox-item"><input type="checkbox" name="beaver_habitat[]" value="Dam"> Dam</label>
                         <label class="checkbox-item"><input type="checkbox" name="beaver_habitat[]" value="Downed trees / Teeth marks"> Downed trees / Teeth marks</label>
-                        <label class="checkbox-item"><input type="checkbox" name="beaver_habitat[]" value="Deep channel / Burrows"> Deep channel / Burrows</label>
+                        <label class="checkbox-item"><input type="checkbox" name="beaver_habitat[]" value="Deep channel"> Deep channel</label>
+                        <label class="checkbox-item"><input type="checkbox" name="beaver_habitat[]" value="Existing burrows"> Existing Burrows</label>
                     </div>
                 </div>
             </div>
@@ -615,8 +629,151 @@
                         <td><input type="text" name="species_name[]"></td>
                         <td><input type="text" name="percent_cover[]"></td>
                     </tr>
+                    <tr>
+                        <td><input type="text" name="plot_num[]"></td>
+                        <td><input type="text" name="veg_waypoint[]"></td>
+                        <td><input type="text" name="species_name[]"></td>
+                        <td><input type="text" name="percent_cover[]"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="plot_num[]"></td>
+                        <td><input type="text" name="veg_waypoint[]"></td>
+                        <td><input type="text" name="species_name[]"></td>
+                        <td><input type="text" name="percent_cover[]"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="plot_num[]"></td>
+                        <td><input type="text" name="veg_waypoint[]"></td>
+                        <td><input type="text" name="species_name[]"></td>
+                        <td><input type="text" name="percent_cover[]"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="plot_num[]"></td>
+                        <td><input type="text" name="veg_waypoint[]"></td>
+                        <td><input type="text" name="species_name[]"></td>
+                        <td><input type="text" name="percent_cover[]"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="plot_num[]"></td>
+                        <td><input type="text" name="veg_waypoint[]"></td>
+                        <td><input type="text" name="species_name[]"></td>
+                        <td><input type="text" name="percent_cover[]"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="plot_num[]"></td>
+                        <td><input type="text" name="veg_waypoint[]"></td>
+                        <td><input type="text" name="species_name[]"></td>
+                        <td><input type="text" name="percent_cover[]"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="plot_num[]"></td>
+                        <td><input type="text" name="veg_waypoint[]"></td>
+                        <td><input type="text" name="species_name[]"></td>
+                        <td><input type="text" name="percent_cover[]"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="plot_num[]"></td>
+                        <td><input type="text" name="veg_waypoint[]"></td>
+                        <td><input type="text" name="species_name[]"></td>
+                        <td><input type="text" name="percent_cover[]"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="plot_num[]"></td>
+                        <td><input type="text" name="veg_waypoint[]"></td>
+                        <td><input type="text" name="species_name[]"></td>
+                        <td><input type="text" name="percent_cover[]"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="plot_num[]"></td>
+                        <td><input type="text" name="veg_waypoint[]"></td>
+                        <td><input type="text" name="species_name[]"></td>
+                        <td><input type="text" name="percent_cover[]"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="plot_num[]"></td>
+                        <td><input type="text" name="veg_waypoint[]"></td>
+                        <td><input type="text" name="species_name[]"></td>
+                        <td><input type="text" name="percent_cover[]"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="plot_num[]"></td>
+                        <td><input type="text" name="veg_waypoint[]"></td>
+                        <td><input type="text" name="species_name[]"></td>
+                        <td><input type="text" name="percent_cover[]"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="plot_num[]"></td>
+                        <td><input type="text" name="veg_waypoint[]"></td>
+                        <td><input type="text" name="species_name[]"></td>
+                        <td><input type="text" name="percent_cover[]"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="plot_num[]"></td>
+                        <td><input type="text" name="veg_waypoint[]"></td>
+                        <td><input type="text" name="species_name[]"></td>
+                        <td><input type="text" name="percent_cover[]"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="plot_num[]"></td>
+                        <td><input type="text" name="veg_waypoint[]"></td>
+                        <td><input type="text" name="species_name[]"></td>
+                        <td><input type="text" name="percent_cover[]"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="plot_num[]"></td>
+                        <td><input type="text" name="veg_waypoint[]"></td>
+                        <td><input type="text" name="species_name[]"></td>
+                        <td><input type="text" name="percent_cover[]"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="plot_num[]"></td>
+                        <td><input type="text" name="veg_waypoint[]"></td>
+                        <td><input type="text" name="species_name[]"></td>
+                        <td><input type="text" name="percent_cover[]"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="plot_num[]"></td>
+                        <td><input type="text" name="veg_waypoint[]"></td>
+                        <td><input type="text" name="species_name[]"></td>
+                        <td><input type="text" name="percent_cover[]"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="plot_num[]"></td>
+                        <td><input type="text" name="veg_waypoint[]"></td>
+                        <td><input type="text" name="species_name[]"></td>
+                        <td><input type="text" name="percent_cover[]"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="plot_num[]"></td>
+                        <td><input type="text" name="veg_waypoint[]"></td>
+                        <td><input type="text" name="species_name[]"></td>
+                        <td><input type="text" name="percent_cover[]"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="plot_num[]"></td>
+                        <td><input type="text" name="veg_waypoint[]"></td>
+                        <td><input type="text" name="species_name[]"></td>
+                        <td><input type="text" name="percent_cover[]"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="plot_num[]"></td>
+                        <td><input type="text" name="veg_waypoint[]"></td>
+                        <td><input type="text" name="species_name[]"></td>
+                        <td><input type="text" name="percent_cover[]"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="plot_num[]"></td>
+                        <td><input type="text" name="veg_waypoint[]"></td>
+                        <td><input type="text" name="species_name[]"></td>
+                        <td><input type="text" name="percent_cover[]"></td>
+                    </tr>
                 </tbody>
             </table>
+
+            <div class="form-group" style="margin-top: 15px;">
+                <label for="weeds_comments">Weed Observations / Comments:</label>
+                <textarea id="weeds_comments" name="weeds_comments"></textarea>
+            </div>
 
             <h4 style="margin-top: 20px; color: var(--primary);">Weed Density Rating</h4>
             <div class="grid">
